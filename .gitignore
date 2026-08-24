@@ -1,0 +1,50 @@
+# Unity generated folders
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Unity generated IDE/project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# IDEs/editors
+.vs/
+.idea/
+.gradle/
+.consulo/
+
+# Unity / build artifacts
+ExportedObj/
+*.apk
+*.aab
+*.unitypackage
+sysinfo.txt
+crashlytics-build.properties
+
+# Asset Store tooling (third-party packages themselves are kept deliberately separated)
+/[Aa]ssets/AssetStoreTools*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Important: Unity .meta files are intentionally NOT ignored.
