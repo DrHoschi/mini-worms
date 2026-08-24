@@ -6,7 +6,7 @@ Internes Entwicklungsrepository für das eigenständige Artillery-Projekt **Mini
 
 - MW-00 bis MW-05: **FROZEN**, Stand 24.08.2026
 - PRE-P000: abgeschlossen
-- Aktueller Repository-Schritt: **GH-02 – Repository-Grundstruktur**
+- GH-02 – Repository-Grundstruktur: **abgeschlossen**
 - P000-Gameplay-Implementierung: **noch nicht begonnen**
 - Primäre Engine: **Unity**
 - Gameplayraum: **2D**
