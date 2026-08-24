@@ -2,7 +2,7 @@
 
 **Meilenstein:** P000 – Core Movement & Terrain  
 **Status Gameplay-Implementierung:** NOT STARTED  
-**Repository-Vorbereitung:** GH-02 PREPARED  
+**Repository-Vorbereitung:** GH-02 COMPLETE  
 **Unity-Version:** TBD – erst beim tatsächlichen Entwicklungsstart festlegen  
 **Stand:** 24.08.2026
 
@@ -26,6 +26,6 @@
 
 ## Scope-Sperre
 
-Bis GH-02 abgeschlossen und die Unity-Projektbasis tatsächlich angelegt ist, wird keine P000-Gameplay-Implementierung begonnen.
+GH-02 ist abgeschlossen. Die eigentliche P000-Gameplay-Implementierung bleibt trotzdem **NOT STARTED**, bis die Unity-Projektbasis im Editor tatsächlich angelegt und geprüft wurde.
 
 P000 enthält später nur Figur + Terrain + Bewegung + grundlegende Physikinteraktion. Waffen, Projektile, Explosionen, Schaden, Teams, Turn-/Matchlogik, KI und Multiplayer bleiben außerhalb von P000.
