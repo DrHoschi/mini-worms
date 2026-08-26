@@ -1,47 +1,22 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
-  <meta name="theme-color" content="#13213b" />
-  <title>Mini-Worms – Web Prototype</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#6ec6ff">
+<title>Mini-Worms – Prototype V2</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <header class="hud">
-      <div class="brand"><span class="logo-mark">🐌</span> Mini-Worms <span class="tag">WEB TEST</span></div>
-      <div class="status" id="status">Lade…</div>
-    </header>
-    <section class="game-wrap">
-      <canvas id="game" aria-label="Mini-Worms Web-Prototyp"></canvas>
-      <div class="vignette"></div>
-      <div id="message" class="message hidden"></div>
-    </section>
-    <section class="readout">
-      <div><b id="activeName">Sheldon</b><small>AKTIV</small></div>
-      <div><b id="hpText">100 HP</b><small>LEBEN</small></div>
-      <div><b id="angleText">45°</b><small>WINKEL</small></div>
-      <div><b id="powerText">62%</b><small>STÄRKE</small></div>
-    </section>
-    <section class="controls" aria-label="Touch-Steuerung">
-      <div class="control-group move">
-        <button data-hold="left" aria-label="Nach links"><span>◀</span><small>LAUF</small></button>
-        <button data-tap="jump" aria-label="Springen"><span>▲</span><small>SPRUNG</small></button>
-        <button data-hold="right" aria-label="Nach rechts"><span>▶</span><small>LAUF</small></button>
-      </div>
-      <div class="control-group aim">
-        <button data-hold="aimDown" aria-label="Zielwinkel senken"><span>↙</span><small>ZIEL</small></button>
-        <button data-hold="aimUp" aria-label="Zielwinkel erhöhen"><span>↗</span><small>ZIEL</small></button>
-      </div>
-      <div class="control-group power">
-        <button data-hold="powerDown" aria-label="Stärke verringern"><span>−</span><small>POWER</small></button>
-        <button data-hold="powerUp" aria-label="Stärke erhöhen"><span>＋</span><small>POWER</small></button>
-      </div>
-      <button id="fire" class="fire" aria-label="Feuern"><span>💥</span><small>FEUER</small></button>
-    </section>
-    <footer>Experimenteller Browser-Prototyp · Gameplaytest vor der späteren Unity-Implementierung</footer>
-  </main>
-  <script src="game.js"></script>
-</body>
-</html>
+<div id="intro" class="intro">
+  <div class="intro-sun"></div><div class="intro-cloud c1"></div><div class="intro-cloud c2"></div><div class="hill h1"></div><div class="hill h2"></div>
+  <div class="hero-snail sheldon"><div class="shell"></div><div class="body"></div><div class="eyes">••</div></div>
+  <div class="hero-snail rollridge"><div class="shell"></div><div class="body"></div><div class="eyes">••</div></div>
+  <div class="intro-card"><div class="eyebrow">ARTILLERY PROTOTYPE V2</div><h1>Mini‑Worms</h1><p>Sheldon gegen Rollridge</p><button id="startGame" class="primary">SPIEL STARTEN</button><button id="openOptions" class="secondary">OPTIONEN</button></div>
+</div>
+<div id="options" class="modal hidden"><div class="panel"><h2>Steuerung</h2><p>Wähle die Bedienung für diesen Test.</p><label class="mode"><input type="radio" name="control" value="classic" checked><span><b>Klassisch / PC</b><small>Tasten für Bewegung, Ziel, Power und Feuer</small></span></label><label class="mode"><input type="radio" name="control" value="touch"><span><b>Touch / Smartphone</b><small>Mit dem Finger direkt auf dem Spielfeld zielen und beim Loslassen feuern</small></span></label><button id="saveOptions" class="primary">ÜBERNEHMEN</button><button id="closeOptions" class="secondary">ZURÜCK</button></div></div>
+<main class="app hidden" id="app">
+<header class="hud"><div class="brand">🐌 Mini‑Worms <span>V2</span></div><div class="status" id="status">Bereit</div></header>
+<section class="game-wrap"><canvas id="game"></canvas><div class="vignette"></div><div id="touchHint" class="touch-hint hidden">Finger ziehen = Ziel &amp; Stärke · Loslassen = Feuer</div><div id="message" class="message hidden"></div></section>
+<section class="readout"><div><b id="activeName">Sheldon</b><small>AKTIV</small></div><div><b id="hpText">100 HP</b><small>LEBEN</small></div><div><b id="angleText">45°</b><small>WINKEL</small></div><div><b id="powerText">62%</b><small>STÄRKE</small></div></section>
+<section id="classicControls" class="controls classic"><div class="move"><button data-hold="left">◀<small>LAUF</small></button><button data-tap="jump">▲<small>SPRUNG</small></button><button data-hold="right">▶<small>LAUF</small></button></div><div class="aim"><button data-hold="aimDown">↙<small>ZIEL</small></button><button data-hold="aimUp">↗<small>ZIEL</small></button></div><div class="power"><button data-hold="powerDown">−<small>POWER</small></button><button data-hold="powerUp">＋<small>POWER</small></button></div><button id="fire" class="fire">💥<small>FEUER</small></button></section>
+<section id="touchControls" class="controls touch hidden"><button data-hold="left">◀</button><button data-tap="jump">▲</button><button data-hold="right">▶</button><div class="touch-label">Zielen direkt im Spielfeld</div></section>
+<footer>Browser-Prototyp · Touch- und PC-Steuerung im Vergleich</footer>
+</main><script src="game.js"></script></body></html>
