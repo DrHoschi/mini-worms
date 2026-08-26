@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Mini-Worms – Web Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hud">
+      <div class="brand">Mini-Worms <span>WEB TEST</span></div>
+      <div class="status" id="status">Lade…</div>
+    </header>
+    <section class="game-wrap">
+      <canvas id="game" aria-label="Mini-Worms Web-Prototyp"></canvas>
+      <div id="message" class="message hidden"></div>
+    </section>
+    <section class="readout">
+      <div><b id="activeName">Sheldon</b><small>Aktiv</small></div>
+      <div><b id="hpText">100 HP</b><small>Leben</small></div>
+      <div><b id="angleText">45°</b><small>Winkel</small></div>
+      <div><b id="powerText">62%</b><small>Stärke</small></div>
+    </section>
+    <section class="controls" aria-label="Touch-Steuerung">
+      <div class="control-group move">
+        <button data-hold="left" aria-label="Nach links">◀</button>
+        <button data-tap="jump" aria-label="Springen">▲</button>
+        <button data-hold="right" aria-label="Nach rechts">▶</button>
+      </div>
+      <div class="control-group aim">
+        <button data-hold="aimDown" aria-label="Zielwinkel senken">↙</button>
+        <button data-hold="aimUp" aria-label="Zielwinkel erhöhen">↗</button>
+      </div>
+      <div class="control-group power">
+        <button data-hold="powerDown" aria-label="Stärke verringern">−</button>
+        <button data-hold="powerUp" aria-label="Stärke erhöhen">＋</button>
+      </div>
+      <button id="fire" class="fire" aria-label="Feuern">FEUER</button>
+    </section>
+    <footer>Experimenteller Wegwerf-Prototyp im Browser – kein Ersatz für die spätere Unity-Implementierung.</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
