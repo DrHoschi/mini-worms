@@ -43,7 +43,6 @@ function shotSound(){
 }
 function grenadeSound(){osc('triangle',360,205,.10,.08);noise(.07,.07,1500)}
 function explosionSound(heavy=false){
-  // Fast crack + dense blast + low-frequency thump + short debris tail.
   noise(.055,heavy?.42:.34,4200,0,'bandpass');
   noise(heavy?1.05:.82,heavy?.62:.52,heavy?720:920,.015,'lowpass');
   osc('sine',heavy?88:110,24,heavy?.78:.62,heavy?.48:.38,.005);
@@ -54,11 +53,15 @@ function explosionSound(heavy=false){
 function uiClick(){osc('sine',430,540,.05,.035)}
 function turnTone(){osc('triangle',440,650,.09,.045);osc('triangle',650,840,.10,.035,.07)}
 
-// Track the last projectile center directly from the game's own canvas drawing.
-// Projectile circles are rendered at radius 7 (bazooka/grenade) or 10 (heavy).
+// Track only the real projectile draw call. Earlier we matched every radius-7/10 arc,
+// which also caught eyes/details drawn in local character coordinates and could move
+// the explosion FX to the upper-left corner.
+const projectileFills=new Set(['#293745','#344b31','#633329']);
 const nativeArc=CanvasRenderingContext2D.prototype.arc;
 CanvasRenderingContext2D.prototype.arc=function(x,y,r,...args){
-  if(this.canvas===canvas&&(Math.abs(r-7)<.01||Math.abs(r-10)<.01))lastProjectile={x,y,t:performance.now()};
+  if(this.canvas===canvas&&projectileFills.has(String(this.fillStyle).toLowerCase())&&(Math.abs(r-7)<.01||Math.abs(r-10)<.01)&&Number.isFinite(x)&&Number.isFinite(y)&&x>=0&&x<=canvas.width&&y>=0&&y<=canvas.height){
+    lastProjectile={x,y,t:performance.now()};
+  }
   return nativeArc.call(this,x,y,r,...args);
 };
 
@@ -96,13 +99,24 @@ wrap.appendChild(layer);
 function setOrigin(){
   const cr=canvas.getBoundingClientRect(),wr=wrap.getBoundingClientRect();
   const fresh=performance.now()-lastProjectile.t<1200;
-  const gx=fresh?lastProjectile.x:480,gy=fresh?lastProjectile.y:300;
+  if(!fresh)return false;
+  const gx=Math.max(0,Math.min(canvas.width,lastProjectile.x));
+  const gy=Math.max(0,Math.min(canvas.height,lastProjectile.y));
   const x=(cr.left-wr.left)+(gx/canvas.width)*cr.width;
   const y=(cr.top-wr.top)+(gy/canvas.height)*cr.height;
+  if(!Number.isFinite(x)||!Number.isFinite(y))return false;
   [flash,ring,ring2,...sparks,...smoke].forEach(el=>{el.style.left=x+'px';el.style.top=y+'px'});
+  return true;
 }
 function boom(heavy=false){
-  setOrigin();explosionSound(heavy);
+  explosionSound(heavy);
+  // If an impact position cannot be trusted, keep the sound/shake but suppress
+  // the localized ring instead of showing it at a wrong location.
+  if(!setOrigin()){
+    wrap.classList.remove('fx-boom');void wrap.offsetWidth;wrap.classList.add('fx-boom');
+    setTimeout(()=>wrap.classList.remove('fx-boom'),500);
+    return;
+  }
   layer.classList.remove('boom');wrap.classList.remove('fx-boom');void layer.offsetWidth;
   layer.classList.add('boom');wrap.classList.add('fx-boom');
   setTimeout(()=>{layer.classList.remove('boom');wrap.classList.remove('fx-boom')},900);
