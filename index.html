@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#67bdf3">
-<title>Mini-Worms – Prototype V2.1</title><link rel="stylesheet" href="style.css?v=2.1.0">
+<title>Mini-Worms – Prototype V2.1</title><link rel="stylesheet" href="style.css?v=2.1.1">
 </head>
 <body>
 <section id="intro" class="intro">
@@ -16,7 +16,6 @@
   </nav>
   <div class="intro-tip">★ Zielen · Schießen · Terrain zerstören ★</div>
 </section>
-
 <section id="options" class="modal hidden" aria-label="Optionen"><div class="panel">
   <div class="panel-head"><div><small>EINSTELLUNGEN</small><h2>OPTIONEN</h2></div><button id="closeOptions" class="xbtn" aria-label="Schließen">×</button></div>
   <h3>STEUERUNG</h3>
@@ -25,12 +24,11 @@
   <div class="option-note">Die Einstellung bleibt auf diesem Gerät gespeichert.</div>
   <button id="saveOptions" class="primary">ÜBERNEHMEN</button>
 </div></section>
-
 <main class="app hidden" id="app">
-<header class="hud"><div class="brand">🐌 Mini‑Worms <span>V2.1</span></div><div class="hud-actions"><div class="status" id="status">Bereit</div><button id="returnMenu" class="menu-mini">☰ MENÜ</button></div></header>
+<header class="hud"><div class="brand">🐌 Mini‑Worms <span>V2.1</span></div><div class="hud-actions"><div class="status" id="status">Bereit</div><button class="menu-mini" onclick="location.reload()">☰ MENÜ</button></div></header>
 <section class="game-wrap"><canvas id="game"></canvas><div class="vignette"></div><div id="touchHint" class="touch-hint hidden">Finger ziehen = Ziel &amp; Stärke · Loslassen = Feuer</div><div id="message" class="message hidden"></div></section>
 <section class="readout"><div><b id="activeName">Sheldon</b><small>AKTIV</small></div><div><b id="hpText">100 HP</b><small>LEBEN</small></div><div><b id="angleText">45°</b><small>WINKEL</small></div><div><b id="powerText">62%</b><small>STÄRKE</small></div></section>
 <section id="classicControls" class="controls classic"><div class="move"><button data-hold="left">◀<small>LAUF</small></button><button data-tap="jump">▲<small>SPRUNG</small></button><button data-hold="right">▶<small>LAUF</small></button></div><div class="aim"><button data-hold="aimDown">↙<small>ZIEL</small></button><button data-hold="aimUp">↗<small>ZIEL</small></button></div><div class="power"><button data-hold="powerDown">−<small>POWER</small></button><button data-hold="powerUp">＋<small>POWER</small></button></div><button id="fire" class="fire">💥<small>FEUER</small></button></section>
 <section id="touchControls" class="controls touch hidden"><button data-hold="left">◀</button><button data-tap="jump">▲</button><button data-hold="right">▶</button><div class="touch-label">Zielen direkt im Spielfeld</div></section>
 <footer>Browser-Prototyp · Touch- und PC-Steuerung im Vergleich</footer>
-</main><script src="game.js?v=2.1.0"></script></body></html>
+</main><script src="game.js?v=2.1.1"></script></body></html>
