@@ -1,0 +1,37 @@
+/* V4 visual pass: closer to the approved bright battlefield reference while retaining phone/tablet responsiveness. */
+.app{background:#238ee6;position:relative}
+.game-wrap{border-radius:0;border:0;box-shadow:none;background:#62b9ef}
+canvas{image-rendering:auto}
+.hud{z-index:8;background:linear-gradient(180deg,#092c57e8,#0b345cba);border-radius:12px;margin:2px 0;color:#fff}
+.brand{letter-spacing:.02em}.brand span{background:#f4a62c;color:#2b1b09}
+.matchmeta>*{background:#0a3765d9;border-color:#76b6e8;color:#fff;font-weight:900}.matchmeta #windText{font-size:13px;padding-inline:14px}.matchmeta #timerText{font-size:13px}
+.overlay-readout{top:14px;left:14px;width:210px;grid-template-columns:1fr;background:#0a3765d9;border:1px solid #75b8e8;border-radius:14px;overflow:hidden;box-shadow:0 5px 15px #06335c55;backdrop-filter:blur(5px)}
+.overlay-readout>div{display:grid;grid-template-columns:1fr auto;align-items:center;background:transparent;border:0;border-radius:0;box-shadow:none;padding:7px 10px;border-bottom:1px solid #ffffff20;text-align:left}
+.overlay-readout>div:first-child{grid-template-columns:1fr;min-height:40px;background:#082c54d9}.overlay-readout>div:last-child{border-bottom:0}
+.overlay-readout b{font-size:14px}.overlay-readout small{font-size:8px;color:#d9efff;letter-spacing:.06em;text-align:right}.overlay-readout>div:first-child small{text-align:left;order:-1;font-size:7px}
+.weaponbar{background:#0a2545e8;border:2px solid #385b7b;border-radius:15px;padding:6px;gap:5px}.weapon{min-height:56px;background:linear-gradient(#163f69,#0a2545);border-color:#365a7b;border-radius:11px;grid-template-columns:34px 1fr auto;padding:7px 9px}.weapon span{font-size:11px}.weapon small{font-size:11px}.weapon.selected{border-color:#f6ad27;background:linear-gradient(#2b3d48,#132d48);box-shadow:0 0 0 2px #f6ad2750 inset}
+.controls{background:#0a2545e8;border:2px solid #385b7b;border-radius:15px;padding:6px}.controls button{background:linear-gradient(#204f80,#12345c);border:1px solid #537da4;box-shadow:inset 0 1px #ffffff28,0 2px 0 #071a31;border-radius:10px}.controls button small{font-size:8px;font-weight:900}.fire{background:linear-gradient(#6d4b1f,#2a2d2f)!important;border:2px solid #f5a51f!important;color:#ffb52f!important;font-size:22px!important}.fire small{font-size:11px!important;color:#ffb52f}
+.touch-hint{background:#07335ddf;border-color:#9fd6ff;font-size:10px}
+.message{background:#082d55e8;border-color:#8ac8f0}
+@media(min-width:900px) and (orientation:landscape){
+ .app{display:grid;grid-template-columns:minmax(0,1fr) 270px;grid-template-rows:48px minmax(0,1fr) 188px;gap:6px;padding:6px}
+ .hud{grid-column:1/-1;grid-row:1;margin:0}
+ .game-wrap{grid-column:1;grid-row:2/4;border-radius:18px;overflow:hidden;border:2px solid #315f86}
+ .weaponbar{grid-column:2;grid-row:2;height:auto;display:grid;grid-template-columns:1fr;align-content:end}
+ .classic,.touch{grid-column:2;grid-row:3;height:auto}
+ .classic{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:5px}
+ .classic .move{grid-column:1/-1;grid-row:1;display:grid;grid-template-columns:1fr 1fr 1.35fr;gap:5px}
+ .classic .aim{grid-column:1;grid-row:2;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+ .classic .power{grid-column:2;grid-row:2;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+ .classic .fire{grid-column:3;grid-row:2;min-width:0}
+ .touch{grid-template-columns:repeat(3,1fr);align-items:stretch}.touch-label{display:none}
+ .overlay-readout{width:210px;max-width:31%}
+}
+@media(min-width:1250px) and (orientation:landscape){.app{grid-template-columns:minmax(0,1fr) 310px}.weapon{min-height:64px}.controls button{font-size:22px}.game-wrap{border-radius:22px}}
+@media(max-width:899px){.overlay-readout{width:190px;max-width:58%;top:8px;left:8px}.overlay-readout>div{padding:5px 7px}.overlay-readout b{font-size:11px}.overlay-readout small{font-size:6px}.hud{height:40px}.matchmeta #windText,.matchmeta #timerText{font-size:9px}.weaponbar{border-width:1px;padding:3px}.weapon{min-height:42px}.classic{border-width:1px}.fire{font-size:18px!important}}
+@media(orientation:landscape) and (max-height:620px) and (max-width:899px){
+ .app{display:grid;grid-template-columns:minmax(0,1fr) 220px;grid-template-rows:36px minmax(0,1fr) 46px 72px;gap:4px;padding:4px}
+ .game-wrap{grid-column:1;grid-row:2/5;border-radius:13px}.hud{grid-column:1/-1;grid-row:1;margin:0}
+ .weaponbar{grid-column:2;grid-row:2/4;display:grid;grid-template-columns:1fr;height:auto;align-content:end}.weapon{min-height:40px}
+ .classic,.touch{grid-column:2;grid-row:4;height:auto}.classic{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr}.classic .move{grid-column:1/-1;grid-row:1;display:grid}.classic .aim{display:grid;grid-column:1;grid-row:2}.classic .power{display:grid;grid-column:2;grid-row:2}.classic .fire{grid-column:3;grid-row:2}.controls button{min-height:32px;font-size:14px}.controls button small{font-size:6px}.overlay-readout{width:175px;max-width:48%}
+}
